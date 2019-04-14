@@ -37,12 +37,12 @@ def create_state_comb(p_a_states, p_b_states):
 
 
 def print_status(goal, new_state, rewards, total_states):
-    print ""
-    print "Players state label: {}".format(new_state)
-    print "Players state in the numerical table: {}".format(total_states[new_state])
-    print "Rewards for each player after move: {}".format(rewards)
-    print "Goal status: {}".format(goal)
-    print "-" * 20 + "\n"
+    print('')
+    print('Players state label: {}'.format(new_state))
+    print('Players state in the numerical table: {}'.format(total_states[new_state]))
+    print('Rewards for each player after move: {}'.format(rewards))
+    print('Goal status: {}'.format(goal))
+    print('-' * 20 + '\n')
 
 
 def main():
@@ -65,9 +65,9 @@ def main():
 
     world.plot_grid()
 
-    print "actions: [N: 0, S: 1, E: 2, W: 3, Stay: 4] \n"
+    print('actions: [N: 0, S: 1, E: 2, W: 3, Stay: 4] \n')
 
-    print "Case where the player B scores an own goal:"
+    print('Case where the player B scores an own goal:')
     actions = {'A': 1, 'B': 1}
     new_state, rewards, goal = world.move(actions)
     print_status(goal, new_state, rewards, total_states)
@@ -78,7 +78,7 @@ def main():
     world.plot_grid()
     print_status(goal, new_state, rewards, total_states)
 
-    print "Case where player B scores while A doesn't move:"
+    print('Case where player B scores while A doesn\'t move:')
     # After a goal the environment needs to be reset
     world.place_player(player_a, player_id='A')
     world.place_player(player_b, player_id='B')
@@ -90,7 +90,7 @@ def main():
     world.plot_grid()
     print_status(goal, new_state, rewards, total_states)
 
-    print "Case where the two player collide:"
+    print('Case where the two player collide:')
     # After a goal the environment needs to be reset
     world.place_player(player_a, player_id='A')
     world.place_player(player_b, player_id='B')
