@@ -283,3 +283,40 @@ class World:
             print('')
 
         return self.map_player_state(), r, goal
+
+
+    def create_state_comb(self):
+        """ Creates a dictionary that represents the state space possible combinations.
+
+        Args:
+            p_a_states (list): List with the numerical state labels for player A
+            p_b_states (list): List with the numerical state labels for player B
+
+        Returns:
+            dict: Dictionary with the state space representation. Each element is labeled using the
+                format [XYZ] where:
+                    - X: shows who has the ball, either A or B.
+                    - Y: state where player A is.
+                    - Z: state where player B is.
+
+                The key values hold a numeric value using the counter id_q.
+
+        """
+
+        states = {}
+        ball_pos = ['A', 'B']
+        id_q = 0
+
+        player_states = range(self.rows*self.cols)
+
+        for b in ball_pos:
+
+            for p_a in player_states:
+
+                for p_b in player_states:
+
+                    if p_a != p_b:
+                        states[b + str(p_a) + str(p_b)] = id_q
+                        id_q += 1
+
+        return states
