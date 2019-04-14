@@ -54,7 +54,7 @@ class World:
 
         grid = [['**'] * (self.cols + 2)]
 
-        for i in xrange(self.rows):
+        for i in range(self.rows):
             grid.append(['**', 'gB'] + ['  '] * (self.cols - 2) + ['gA', '**'])
 
         grid.append(['**'] * (self.cols + 2))
@@ -238,7 +238,7 @@ class World:
         r = None
         goal = False
 
-        player_order = a.keys()
+        player_order = list(a.keys())
         np.random.shuffle(player_order)
         new_pos = Player(0, 0, False)
 
